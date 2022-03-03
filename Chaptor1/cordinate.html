@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      .btns {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+      }
+      .squre {
+        width: 250px;
+        height: 250px;
+        background-color: blanchedalmond;
+        border-radius: 20px;
+        margin-bottom: 10px;
+      }
+      .squre2 {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 10px;
+        background-color: tomato;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="btns">
+      <input type="button" class="first" value="Scroll by 100px(y)" />
+      <input type="button" class="second" value="Scroll to 100px(y)" />
+      <input type="button" class="third" value="Scroll into spacial" />
+    </aside>
+    <div class="squre"></div>
+    <div class="squre"></div>
+    <div class="squre"></div>
+    <div class="squre"></div>
+    <div class="squre"></div>
+    <div class="squre2"></div>
+    <div class="squre"></div>
+    <div class="squre"></div>
+    <div class="squre"></div>
+    <div class="squre"></div>
+    <script>
+      const squre2 = document.querySelector(".squre2");
+      const first = document.querySelector(".first");
+      const second = document.querySelector(".second");
+      const third = document.querySelector(".third");
+      squre2.addEventListener("click", (event) => {
+        const rect = squre2.getBoundingClientRect();
+        console.log(rect);
+        console.log(`clent: ${event.clientX}, ${event.clientY}`);
+        console.log(`page: ${event.pageX}, ${event.pageY}`);
+      });
+
+      first.addEventListener("click", (event) => {
+        window.scrollBy({ top: 100, left: 0, behavior: "smooth" });
+      });
+      second.addEventListener("click", (event) => {
+        window.scrollTo(0, 100);
+      });
+      third.addEventListener("click", (event) => {
+        squre2.scrollIntoView();
+      });
+    </script>
+  </body>
+</html>
