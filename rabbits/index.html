@@ -20,6 +20,7 @@
         margin: 0 auto;
         background-color: tomato;
         border: none;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -45,7 +46,7 @@
       const rabbit = document.getElementById("rabbit");
 
       btn.addEventListener("click", (event) => {
-        rabbit.scrollIntoView({ block: "center" });
+        rabbit.scrollIntoView({ behavior: "smooth", block: "center" });
       });
     </script>
   </body>
