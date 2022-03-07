@@ -1,16 +1,23 @@
-const target = document.querySelector(".target");
-const coord = document.querySelector(".coord");
 const vertical = document.querySelector(".vertical");
 const horizontal = document.querySelector(".horizontal");
+const target = document.querySelector(".target");
+const coord = document.querySelector(".coord");
 
-document.addEventListener("mousemove", (event) => {
-  const mouseX = event.clientX;
-  const mouseY = event.clientY;
-  vertical.style.left = mouseX + `px`;
-  horizontal.style.top = mouseY + `px`;
-  target.style.left = mouseX + `px`;
-  target.style.top = mouseY + `px`;
-  coord.style.left = mouseX + `px`;
-  coord.style.top = mouseY + `px`;
-  coord.innerText = `x: ${mouseX}, y: ${mouseY}`;
+addEventListener("load", () => {
+  const targetRect = target.getBoundingClientRect();
+  const targetHalfWidth = targetRect.width / 2;
+  const targetHalfHeight = targetRect.height / 2;
+
+  document.addEventListener("mousemove", (event) => {
+    const x = event.clientX;
+    const y = event.clientY;
+
+    vertical.style.transform = `translate(${x}px)`;
+    horizontal.style.transform = `translate(${y}px)`;
+    target.style.transform = `translate(${x - targetHalfWidth}px, ${
+      y - targetHalfHeight
+    }px)`;
+    coord.innerHTML = `x: ${x}, y: ${y}`;
+    coord.style.transform = `translate(${x}px, ${y}px)`;
+  });
 });

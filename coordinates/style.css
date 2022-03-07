@@ -1,12 +1,6 @@
 body{
     background-color: black;
-}
-
-.target{
-position: absolute;
-top:50%;
-left: 50%;
-transform: translate(-50%, -50%);
+    margin: 0;
 }
 
 .line{
@@ -16,19 +10,20 @@ transform: translate(-50%, -50%);
 .horizontal {
     width: 100%;
     height: 1px;
-    top: 50%;
 }
 
 .vertical{
     width: 1px;
     height: 100%;
-    left: 50%;
+}
+
+.target{
+position: absolute;
+transform: translate(-50%, -50%);
 }
 
 .coord{
     color: white;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(20px, 20px);
+    margin: 20px;
 }
